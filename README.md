@@ -22,7 +22,7 @@ With default settings for a 3 server configuration with default ports:
     MAX_PASS="myMaxScaleUserPass"
         MaxScale User password for the cluster.
     ENABLE_ROOT_USER=0
-        Allow root access to the DB via MaxScale.
+        Allow root access to the DB via MaxScale. Values 0 or 1.
     DB_PORT=3306
         MySQL/MariaDB Port MaxScale is exposing.
     CLI_PORT=6603
