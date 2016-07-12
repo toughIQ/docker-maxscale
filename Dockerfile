@@ -17,7 +17,7 @@ ENV MAX_THREADS=4 \
 COPY docker-entrypoint.sh /
 
 # We expose our set Listener Ports
-ONBUILD EXPOSE $GL_PORT $CLI_PORT
+ONBUILD EXPOSE $DB_PORT $CLI_PORT
 
 # We define the config creator as entrypoint
 ENTRYPOINT ["/docker-entrypoint.sh"]
