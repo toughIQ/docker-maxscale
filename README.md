@@ -17,7 +17,24 @@ Check parameters in `docker-compose.yml` and start with:
 ## Build
 
         docker build -t toughiq/maxscale .
-        
+
+## Build own static image
+You can build your own static image of __maxscale__, so you dont have to put your backend servers and credentials every time at the `run` command. Be aware __NOT__ to push this image into a public repository, since it contains your personal server/cluster credentials.
+
+### Create Dockerfile Example
+
+        FROM toughiq/maxscale
+        MAINTAINER yourname@domain.com
+        ENV MAX_PASS="yourMaxScalePassword" \
+            MAX_THREADS=2 \
+            ENABLE_ROOT_USER=1 \ 
+            DB_PORT=4407 \
+            BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
+            BACKEND_PORT_LIST="13306 13306 13306"
+            
+        docker build -t mymaxscale .
+        docker run -d -p 3306:4407 
+    
 ## Environment Defaults
     MAX_THREADS=4
         MaxThreads for MaxScale to run.
