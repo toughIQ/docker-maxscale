@@ -5,7 +5,7 @@ Dockerized MaxScale for Galera Cluster Backend
 With default settings for a 3 server configuration with default ports:
 
 `docker run -d -p 3306:3306 \
-  --name maxscale \
-  -e BACKEND_SERVER_LIST="db01.myserver db02.mysserver db03.myserver" \
-  -e MAX_PASS="myMaxScalePassword" \
-  toughiq/maxscale`
+    --name maxscale \
+    -e BACKEND_SERVER_LIST="db01.myserver db02.mysserver db03.myserver" \
+    -e MAX_PASS="myMaxScalePassword" \
+    toughiq/maxscale`
