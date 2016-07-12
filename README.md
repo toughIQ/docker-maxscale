@@ -1,7 +1,7 @@
 # docker-maxscale
 Dockerized MaxScale for Galera Cluster Backend
 
-##Run
+## Run
 With default settings for a 3 server configuration with default ports:
 
     docker run -d -p 3306:3306 \
@@ -9,8 +9,12 @@ With default settings for a 3 server configuration with default ports:
         -e BACKEND_SERVER_LIST="db01.myserver db02.myserver db03.myserver" \
         -e MAX_PASS="myMaxScalePassword" \
         toughiq/maxscale
+### Using docker-compose
+Check parameters in `docker-compose.yml` and start with:
 
-##Build
+    docker-compose up -d
+    
+## Build
 
         docker build -t toughiq/maxscale .
         
@@ -27,6 +31,7 @@ With default settings for a 3 server configuration with default ports:
         MySQL/MariaDB Port MaxScale is exposing.
     CLI_PORT=6603
         MaxScale CLI port.
+        
     BACKEND_SERVER_LIST="server1 server2 server3"
         List of backend Servers MaxScale is connecting to.
     BACKEND_PORT_LIST="3306 3306 3306"
