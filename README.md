@@ -19,7 +19,7 @@ With default settings for a 3 server configuration with default ports:
         MaxThreads for MaxScale to run.
     MAX_USER="maxscale"
         MaxScale User in the cluster.
-    MAX_PASS="myMaxScaleUserPass"
+    MAX_PASS="myMaxScaleUserPassw"
         MaxScale User password for the cluster.
     ENABLE_ROOT_USER=0
         Allow root access to the DB via MaxScale. Values 0 or 1.
