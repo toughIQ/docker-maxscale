@@ -1,6 +1,9 @@
 FROM asosso/maxscale:1.4.3
 MAINTAINER toughiq@gmail.com
 
+# bring system up2date & install bind utils for service discovery
+RUN yum update -y && yum install -y bind-utils
+
 # Setup for Galera Service (GS), not for Master-Slave environments
 
 # We set some defaults for config creation. Can be overwritten at runtime.
