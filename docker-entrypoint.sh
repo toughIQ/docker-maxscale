@@ -2,17 +2,16 @@
 
 set -e
 
-# We break our IP and Port list into arrays
-IFS=', ' read -r -a backend_servers <<< "$BACKEND_SERVER_LIST"
-IFS=', ' read -r -a backend_ports <<< "$BACKEND_PORT_LIST"
-
-if [ "${#backend_servers[@]}" -ne "${#backend_ports[@]}" ];then
-  echo "Number of definded BackendServer:${#backend_servers[@]} does not match"
-  echo "Number of definded BackendPorts:${#backend_ports[@]}"
-  echo "Exiting!"
-  exit 1
+# if service discovery was activated, we overwrite the BACKEND_SERVER_LIST with the
+# results of DNS service lookup
+if [ -n "$DB_SERVICE_NAME" ]; then
+  BACKEND_SERVER_LIST=`getent hosts tasks.$DB_SERVICE_NAME|awk '{print $1}'|tr '\n' ' '`
 fi
 
+
+
+# We break our IP list into array
+IFS=', ' read -r -a backend_servers <<< "$BACKEND_SERVER_LIST"
 
 
 config_file="/etc/maxscale.cnf"
@@ -63,7 +62,7 @@ cat <<EOF >> $config_file
 [${backend_servers[$i]}]
 type=server
 address=${backend_servers[$i]}
-port=${backend_ports[$i]}
+port=$BACKEND_PORT
 protocol=MySQLBackend
 
 EOF

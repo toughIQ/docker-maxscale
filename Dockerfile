@@ -14,7 +14,7 @@ ENV MAX_THREADS=4 \
     DB_PORT=3306 \
     CLI_PORT=6603 \
     BACKEND_SERVER_LIST="server1 server2 server3" \
-    BACKEND_PORT_LIST="3306 3306 3306"
+    BACKEND_PORT="3306"
 
 # We copy our config creator script to the container
 COPY docker-entrypoint.sh /

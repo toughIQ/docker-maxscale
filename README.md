@@ -30,7 +30,7 @@ You can build your own static image of __maxscale__, so you dont have to put you
             ENABLE_ROOT_USER=1 \ 
             DB_PORT=4407 \
             BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
-            BACKEND_PORT_LIST="13306 13306 13306"
+            BACKEND_PORT="3306"
             
         docker build -t mymaxscale .
         docker run -d -p 3306:4407 
@@ -51,7 +51,18 @@ You can build your own static image of __maxscale__, so you dont have to put you
         
     BACKEND_SERVER_LIST="server1 server2 server3"
         List of backend Servers MaxScale is connecting to.
-    BACKEND_PORT_LIST="3306 3306 3306"
-        Corresponding listening ports of backendservers for MaxScale to connect to.
+    BACKEND_PORT="3306"
+        Port on which the backend servers are listening.
         
 __BACKEND_SERVER_LIST__ and __MAX_PASS__ have to be set on each `docker run` or within `docker-compose.yml`, since we cannot use defaults here.
+
+## Service discovery with Docker Swarm 1.12
+If the backend servers are running within a service controlled docker swarm you can start MaxScale also as service and let it autodiscover the DB nodes.
+        docker service create --name maxscale \
+            --network myDBnet \
+            --env DB_SERVICE_NAME=my_db_service \
+            --env BACKEND_PORT=4711 \
+            toughiq/maxscale
+    
+    
+    
