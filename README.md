@@ -57,12 +57,13 @@ You can build your own static image of __maxscale__, so you dont have to put you
 __BACKEND_SERVER_LIST__ and __MAX_PASS__ have to be set on each `docker run` or within `docker-compose.yml`, since we cannot use defaults here.
 
 ## Service discovery with Docker Swarm 1.12
-If the backend servers are running within a service controlled docker swarm you can start MaxScale also as service and let it autodiscover the DB nodes.
+If the backend servers are running within a service controlled docker swarm you can start MaxScale also as service and let it autodiscover each DB node running within service `my_db_service`
+        
         docker service create --name maxscale \
             --network myDBnet \
             --env DB_SERVICE_NAME=my_db_service \
-            --env BACKEND_PORT=4711 \
             toughiq/maxscale
-    
+
+This is done by querying the internal DNS service and processing the DNS round robin result to generate `maxscale.cnf` at startup.     
     
     
