@@ -40,7 +40,7 @@ You can build your own static image of __maxscale__, so you dont have to put you
         MaxThreads for MaxScale to run.
     MAX_USER="maxscale"
         MaxScale User in the cluster.
-    MAX_PASS="maxscale"
+    MAX_PASS="maxscalepass"
         MaxScale User password for the cluster.
     ENABLE_ROOT_USER=0
         Allow root access to the DB via MaxScale. Values 0 or 1.

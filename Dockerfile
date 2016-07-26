@@ -9,7 +9,7 @@ RUN yum update -y
 # We set some defaults for config creation. Can be overwritten at runtime.
 ENV MAX_THREADS=4 \
     MAX_USER="maxscale" \
-    MAX_PASS="maxscale" \
+    MAX_PASS="maxscalepass" \
     ENABLE_ROOT_USER=0 \ 
     DB_PORT=3306 \
     CLI_PORT=6603 \
