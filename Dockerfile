@@ -11,8 +11,8 @@ ENV MAX_THREADS=4 \
     MAX_USER="maxscale" \
     MAX_PASS="maxscalepass" \
     ENABLE_ROOT_USER=0 \ 
-    ROUTER_PORT=3306 \
-    SPLITTER_PORT=3307 \
+    SPLITTER_PORT=3306 \
+    ROUTER_PORT=3307 \
     CLI_PORT=6603 \
     BACKEND_SERVER_LIST="server1 server2 server3" \
     BACKEND_SERVER_PORT="3306"
@@ -21,7 +21,7 @@ ENV MAX_THREADS=4 \
 COPY docker-entrypoint.sh /
 
 # We expose our set Listener Ports
-EXPOSE $ROUTER_PORT $SPLITTER_PORT $CLI_PORT
+EXPOSE $SPLITTER_PORT $ROUTER_PORT $CLI_PORT
 
 # We define the config creator as entrypoint
 ENTRYPOINT ["/docker-entrypoint.sh"]
