@@ -34,7 +34,7 @@ You can build your own static image of __maxscale__, so you dont have to put you
         BACKEND_SERVER_PORT="3306"
             
         docker build -t mymaxscale .
-        docker run -d -p 3306:4407 -p 3307:4408
+        docker run -d -p 3306:4407 -p 3307:4408 mymaxscale
     
 ## Environment Defaults
     MAX_THREADS=4
