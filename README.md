@@ -28,8 +28,8 @@ You can build your own static image of __maxscale__, so you dont have to put you
         ENV MAX_PASS="yourMaxScalePassword" \
         MAX_THREADS=2 \
         ENABLE_ROOT_USER=1 \ 
-        ROUTER_PORT=4407 \
-        SPLITTER_PORT=4408
+        SPLITTER_PORT=4407 \
+        ROUTER_PORT=4408 \
         BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
         BACKEND_SERVER_PORT="3306"
             
@@ -45,10 +45,11 @@ You can build your own static image of __maxscale__, so you dont have to put you
         MaxScale User password for the cluster.
     ENABLE_ROOT_USER=0
         Allow root access to the DB via MaxScale. Values 0 or 1.
-    ROUTER_PORT=3306
-        MySQL/MariaDB Port MaxScale is exposing with the READCONN service.
-    SPLITTER_PORT=3307
+    SPLITTER_PORT=3306
         MySQL/MariaDB Port MaxScale is exposing with the READWRITE service.
+        Since this results in less errors when connecting, we made this the default on port 3306
+    ROUTER_PORT=3307
+        MySQL/MariaDB Port MaxScale is exposing with the READCONN service.
     CLI_PORT=6603
         MaxScale CLI port.
         
