@@ -4,6 +4,7 @@ services:
     image: toughiq/maxscale
     ports:
       - 3306:3306
+      - 3307:3307
     environment:
       - BACKEND_SERVER_LIST="db01.myserver db02.myserver db03.myserver"
       - MAX_PASS="myMaxScalePassword"

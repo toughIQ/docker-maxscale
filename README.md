@@ -4,7 +4,7 @@ Dockerized MaxScale for Galera Cluster Backend
 ## Run
 With default settings for a 3 server configuration with default ports:
 
-    docker run -d -p 3306:3306 \
+    docker run -d -p 3306:3306 -p 3307:3307 \
         --name maxscale \
         -e BACKEND_SERVER_LIST="db01.myserver db02.myserver db03.myserver" \
         -e MAX_PASS="myMaxScalePassword" \
@@ -26,14 +26,15 @@ You can build your own static image of __maxscale__, so you dont have to put you
         FROM toughiq/maxscale
         MAINTAINER yourname@domain.com
         ENV MAX_PASS="yourMaxScalePassword" \
-            MAX_THREADS=2 \
-            ENABLE_ROOT_USER=1 \ 
-            DB_PORT=4407 \
-            BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
-            BACKEND_PORT="3306"
+        MAX_THREADS=2 \
+        ENABLE_ROOT_USER=1 \ 
+        ROUTER_PORT=4407 \
+        SPLITTER_PORT=4408
+        BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
+        BACKEND_SERVER_PORT="3306"
             
         docker build -t mymaxscale .
-        docker run -d -p 3306:4407 
+        docker run -d -p 3306:4407 -p 3307:4408
     
 ## Environment Defaults
     MAX_THREADS=4
@@ -44,14 +45,16 @@ You can build your own static image of __maxscale__, so you dont have to put you
         MaxScale User password for the cluster.
     ENABLE_ROOT_USER=0
         Allow root access to the DB via MaxScale. Values 0 or 1.
-    DB_PORT=3306
-        MySQL/MariaDB Port MaxScale is exposing.
+    ROUTER_PORT=3306
+        MySQL/MariaDB Port MaxScale is exposing with the READCONN service.
+    SPLITTER_PORT=3307
+        MySQL/MariaDB Port MaxScale is exposing with the READWRITE service.
     CLI_PORT=6603
         MaxScale CLI port.
         
     BACKEND_SERVER_LIST="server1 server2 server3"
         List of backend Servers MaxScale is connecting to.
-    BACKEND_PORT="3306"
+    BACKEND_SERVER_PORT="3306"
         Port on which the backend servers are listening.
         
 __BACKEND_SERVER_LIST__ and __MAX_PASS__ have to be set on each `docker run` or within `docker-compose.yml`, since we cannot use defaults here.

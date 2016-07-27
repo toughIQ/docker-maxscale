@@ -35,12 +35,27 @@ enable_root_user=$ENABLE_ROOT_USER
 type=listener
 service=Galera Service
 protocol=MySQLClient
-port=3306
+port=$ROUTER_PORT
+
+[Splitter Service]
+type=service
+router=readwritesplit
+servers=${BACKEND_SERVER_LIST// /,}
+user=$MAX_USER
+passwd=$MAX_PASS
+enable_root_user=$ENABLE_ROOT_USER
+
+[Splitter Listener]
+type=listener
+service=Splitter Service
+protocol=MySQLClient
+port=$SPLITTER_PORT
 
 [Galera Monitor]
 type=monitor
 module=galeramon
 servers=${BACKEND_SERVER_LIST// /,}
+disable_master_failback=1
 user=$MAX_USER
 passwd=$MAX_PASS
 
@@ -62,7 +77,7 @@ cat <<EOF >> $config_file
 [${backend_servers[$i]}]
 type=server
 address=${backend_servers[$i]}
-port=$BACKEND_PORT
+port=$BACKEND_SERVER_PORT
 protocol=MySQLBackend
 
 EOF
