@@ -1,5 +1,6 @@
 # docker-maxscale
-Dockerized MaxScale for Galera Cluster Backend
+Dockerized MaxScale for Galera Cluster Backend.
+Can be used in combination with https://github.com/toughIQ/docker-mariadb-cluster.
 
 ## Run
 With default settings for a 3 server configuration with default ports:
