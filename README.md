@@ -53,7 +53,8 @@ You can build your own static image of __maxscale__, so you dont have to put you
         MySQL/MariaDB Port MaxScale is exposing with the READCONN service.
     CLI_PORT=6603
         MaxScale CLI port.
-        
+    CONNECTION_TIMEOUT=600
+        Default timeout setting of 600sec/10min. If you need connections to be open for longer, just increase this value to the duration needed. Value is in seconds.
     BACKEND_SERVER_LIST="server1 server2 server3"
         List of backend Servers MaxScale is connecting to.
     BACKEND_SERVER_PORT="3306"
