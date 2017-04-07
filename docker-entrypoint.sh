@@ -81,7 +81,8 @@ type=server
 address=${backend_servers[$i]}
 port=$BACKEND_SERVER_PORT
 protocol=MySQLBackend
-
+persistpoolmax=$PERSIST_POOLMAX
+persistmaxtime=$PERSIST_MAXTIME
 EOF
 
 done
