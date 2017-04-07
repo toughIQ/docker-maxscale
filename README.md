@@ -55,6 +55,10 @@ You can build your own static image of __maxscale__, so you dont have to put you
         MaxScale CLI port.
     CONNECTION_TIMEOUT=600
         Default timeout setting of 600sec/10min. If you need connections to be open for longer, just increase this value to the duration needed. Value is in seconds.
+    PERSIST_POOLMAX=0
+        Number of persistent connections to the backend server. Defaults to `0` which means no persistence. Change to `non-zero` value to enable given number of persistent connections.
+    PERSIST_MAXTIME=3600
+        If persistent backend connections are enabled, this is the timeout in `seconds`. After this period a connections is regarded as deprecated and will not be used again.
     BACKEND_SERVER_LIST="server1 server2 server3"
         List of backend Servers MaxScale is connecting to.
     BACKEND_SERVER_PORT="3306"
