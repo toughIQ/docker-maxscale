@@ -1,4 +1,4 @@
-FROM asosso/maxscale:1.4.3
+FROM asosso/maxscale:2.1.3
 MAINTAINER toughiq@gmail.com
 
 # bring system up2date
