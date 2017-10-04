@@ -1,8 +1,5 @@
-FROM asosso/maxscale:1.4.3
+FROM asosso/maxscale:1.4.5
 MAINTAINER toughiq@gmail.com
-
-# bring system up2date
-RUN yum update -y
 
 # Setup for Galera Service (GS), not for Master-Slave environments
 

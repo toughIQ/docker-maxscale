@@ -1,7 +1,7 @@
 version: '2'
 services:
   maxscale:
-    image: toughiq/maxscale
+    image: toughiq/maxscale:1
     ports:
       - 3306:3306
       - 3307:3307
