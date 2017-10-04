@@ -4,6 +4,7 @@ Can be used in combination with https://github.com/toughIQ/docker-mariadb-cluste
 
 ## Branches & Tags
 There are 2 branches available, which feature __MaxScale1__ and __MaxScale2__ versions.
+
 Since MaxScale1 is __free to use__, but MaxScale2 __needs a license from MariaDB__ in some setups, I will keep the __master__ branch with version 1.4.5 for now. This also applies to the __:latest__ tag in Docker.
 
 | Version | Branch | Docker Tag |
