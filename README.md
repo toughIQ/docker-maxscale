@@ -4,15 +4,15 @@ Can be used in combination with https://github.com/toughIQ/docker-mariadb-cluste
 
 ## Branches & Tags
 There are 2 branches available, which feature __MaxScale1__ and __MaxScale2__ versions.
-Since MaxScale1 is __free to use__, but MaxScale2 __needs a license from MariaDB__ in some setups, I will keep the __master__ branch with version 1.4.3 for now. This also applies to the __:latest__ tag in Docker.
+Since MaxScale1 is __free to use__, but MaxScale2 __needs a license from MariaDB__ in some setups, I will keep the __master__ branch with version 1.4.5 for now. This also applies to the __:latest__ tag in Docker.
 
 | Version | Branch | Docker Tag |
 |---------|--------|------------|
-| _1.4.3_   | _master_ | _latest_     |
-| 1.4.3   | 1.x    | 1          |
-| 1.4.3   | 1.x    | 1.4.3      |
-| 2.1.3   | 2.x    | 2          |
-| 2.1.3   | 2.x    | 2.1.3      |
+| _1.4.5_   | _master_ | _latest_     |
+| 1.4.5   | 1.x    | 1          |
+| 1.4.5   | 1.x    | 1.4.5      |
+| 2.1.9   | 2.x    | 2          |
+| 2.1.9   | 2.x    | 2.1.9      |
 
 ## Run
 With default settings for a 3 server configuration with default ports:
