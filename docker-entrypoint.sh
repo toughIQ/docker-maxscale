@@ -46,6 +46,7 @@ connection_timeout=$CONNECTION_TIMEOUT
 user=$MAX_USER
 passwd=$MAX_PASS
 enable_root_user=$ENABLE_ROOT_USER
+use_sql_variables_in=$USE_SQL_VARIABLES_IN
 
 [Splitter Listener]
 type=listener
