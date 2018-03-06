@@ -15,7 +15,8 @@ ENV MAX_THREADS=4 \
     PERSIST_POOLMAX=0 \
     PERSIST_MAXTIME=3600 \
     BACKEND_SERVER_LIST="server1 server2 server3" \
-    BACKEND_SERVER_PORT="3306"
+    BACKEND_SERVER_PORT="3306" \
+    USE_SQL_VARIABLES_IN="all"
 
 # We copy our config creator script to the container
 COPY docker-entrypoint.sh /

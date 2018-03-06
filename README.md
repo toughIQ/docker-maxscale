@@ -45,7 +45,8 @@ You can build your own static image of __maxscale__, so you dont have to put you
         SPLITTER_PORT=4407 \
         ROUTER_PORT=4408 \
         BACKEND_SERVER_LIST="maria01.db maria02.db maria03.db" \
-        BACKEND_SERVER_PORT="3306"
+        BACKEND_SERVER_PORT="3306" \
+        USE_SQL_VARIABLES_IN="all"
             
         docker build -t mymaxscale .
         docker run -d -p 3306:4407 -p 3307:4408 mymaxscale
@@ -76,6 +77,10 @@ You can build your own static image of __maxscale__, so you dont have to put you
         List of backend Servers MaxScale is connecting to.
     BACKEND_SERVER_PORT="3306"
         Port on which the backend servers are listening.
+    USE_SQL_VARIABLES_IN="all"
+        Should SQL variables when using `readwritesplit` be routed to all nodes or just the master. Possible values `all` of `master`. Defaults to `all`
+        Version 1: https://mariadb.com/kb/en/mariadb-enterprise/mariadb-maxscale-14/readwritesplit/
+        Version 2: https://mariadb.com/kb/en/mariadb-enterprise/mariadb-maxscale-20-limitations-and-known-issues-within-mariadb-maxscale/
         
 __BACKEND_SERVER_LIST__ and __MAX_PASS__ have to be set on each `docker run` or within `docker-compose.yml`, since we cannot use defaults here.
 
