@@ -1,3 +1,6 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/toughiq/maxscale.svg)](https://hub.docker.com/r/toughiq/maxscale/)
+[![](https://images.microbadger.com/badges/image/toughiq/maxscale.svg)](https://microbadger.com/images/toughiq/maxscale "Get your own image badge on microbadger.com")
+
 # docker-maxscale
 Dockerized MaxScale for Galera Cluster Backend.
 Can be used in combination with https://github.com/toughIQ/docker-mariadb-cluster.
