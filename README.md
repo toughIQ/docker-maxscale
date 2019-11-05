@@ -64,6 +64,8 @@ You can build your own static image of __maxscale__, so you dont have to put you
         Since this results in less errors when connecting, we made this the default on port 3306
     ROUTER_PORT=3307
         MySQL/MariaDB Port MaxScale is exposing with the READCONN service.
+    ROUTER_OPTIONS="synced"
+        Possible values: `master` `slave` `synced` `ndb` `running`. See https://mariadb.com/kb/en/mariadb-maxscale-22-readconnroute/
     CLI_PORT=6603
         MaxScale CLI port.
     CONNECTION_TIMEOUT=600

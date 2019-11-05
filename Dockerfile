@@ -1,4 +1,4 @@
-FROM asosso/maxscale:2.1.9
+FROM asosso/maxscale:2.2.5
 MAINTAINER toughiq@gmail.com
 
 # Setup for Galera Service (GS), not for Master-Slave environments
@@ -10,6 +10,7 @@ ENV MAX_THREADS=4 \
     ENABLE_ROOT_USER=0 \ 
     SPLITTER_PORT=3306 \
     ROUTER_PORT=3307 \
+    ROUTER_OPTIONS="synced" \
     CLI_PORT=6603 \
     CONNECTION_TIMEOUT=600 \
     PERSIST_POOLMAX=0 \

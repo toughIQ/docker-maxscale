@@ -25,7 +25,7 @@ threads=$MAX_THREADS
 [Galera Service]
 type=service
 router=readconnroute
-router_options=synced
+router_options=$ROUTER_OPTIONS
 servers=${BACKEND_SERVER_LIST// /,}
 connection_timeout=$CONNECTION_TIMEOUT
 user=$MAX_USER
