@@ -35,4 +35,5 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 HEALTHCHECK --interval=5s CMD /healthcheck.sh
 
 # We startup MaxScale as default command
-CMD ["/usr/bin/maxscale","--log=stdout", "--nodaemon"]
+CMD ["/usr/bin/maxscale", "--nodaemon"]
+#"--log=stdout",
