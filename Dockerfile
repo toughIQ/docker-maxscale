@@ -1,4 +1,4 @@
-FROM asosso/maxscale:2.2.5
+FROM asosso/maxscale:1.4.5
 MAINTAINER toughiq@gmail.com
 
 # Setup for Galera Service (GS), not for Master-Slave environments
