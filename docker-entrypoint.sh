@@ -2,6 +2,9 @@
 
 set -e
 
+chmod +x /getbackendservers.sh /healthcheck.sh
+
+
 # if service discovery was activated, we overwrite the BACKEND_SERVER_LIST with the
 # results of DNS service lookup
 if [ -n "$DB_SERVICE_NAME" ]; then
