@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BACKEND_SERVER_LIST=`/getbackendservers.sh`
-CONFIGURED_SERVER_LIST=`cat /tmp/configuredbackservers`
+CONFIGURED_SERVER_LIST=`cat /tmp/configuredbackservers|xargs`
 
 if [[ "$BACKEND_SERVER_LIST" == "$CONFIGURED_SERVER_LIST" ]]
 then
