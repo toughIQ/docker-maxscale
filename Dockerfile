@@ -21,12 +21,17 @@ ENV MAX_THREADS=4 \
 
 # We copy our config creator script to the container
 COPY docker-entrypoint.sh /
+COPY getbackendserver.sh /
+COPY healthcheck.sh /
+
 
 # We expose our set Listener Ports
 EXPOSE $SPLITTER_PORT $ROUTER_PORT $CLI_PORT
 
 # We define the config creator as entrypoint
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
+HEALTHCHECK --interval=30s CMD /healthcheck.sh
 
 # We startup MaxScale as default command
 CMD ["/usr/bin/maxscale","--nodaemon"]
