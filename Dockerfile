@@ -21,7 +21,7 @@ ENV MAX_THREADS=4 \
 
 # We copy our config creator script to the container
 COPY docker-entrypoint.sh /
-COPY getbackendserver.sh /
+COPY getbackendservers.sh /
 COPY healthcheck.sh /
 
 
