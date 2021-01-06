@@ -23,6 +23,7 @@ ENV MAX_THREADS=4 \
 COPY docker-entrypoint.sh /
 COPY getbackendservers.sh /
 COPY healthcheck.sh /
+RUN chmod +x /getbackendservers.sh /healthcheck.sh
 
 
 # We expose our set Listener Ports
