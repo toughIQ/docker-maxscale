@@ -2,17 +2,20 @@
 
 set -e
 
+
 # if service discovery was activated, we overwrite the BACKEND_SERVER_LIST with the
 # results of DNS service lookup
 if [ -n "$DB_SERVICE_NAME" ]; then
-  BACKEND_SERVER_LIST=`getent hosts tasks.$DB_SERVICE_NAME|awk '{print $1}'|tr '\n' ' '`
+  BACKEND_SERVER_LIST=`/getbackendservers.sh`
 fi
 
+echo $BACKEND_SERVER_LIST >> /tmp/configuredbackservers
 
 
 # We break our IP list into array
 IFS=', ' read -r -a backend_servers <<< "$BACKEND_SERVER_LIST"
 
+echo "Starting for backends: $BACKEND_SERVER_LIST"   
 
 config_file="/etc/maxscale.cnf"
 

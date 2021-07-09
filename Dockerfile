@@ -1,4 +1,4 @@
-FROM asosso/maxscale:2.2.5
+FROM asosso/maxscale:1.4.5
 MAINTAINER toughiq@gmail.com
 
 # Setup for Galera Service (GS), not for Master-Slave environments
@@ -21,6 +21,10 @@ ENV MAX_THREADS=4 \
 
 # We copy our config creator script to the container
 COPY docker-entrypoint.sh /
+COPY getbackendservers.sh /
+COPY healthcheck.sh /
+#RUN chmod +x /getbackendservers.sh /healthcheck.sh
+
 
 # We expose our set Listener Ports
 EXPOSE $SPLITTER_PORT $ROUTER_PORT $CLI_PORT
@@ -28,5 +32,8 @@ EXPOSE $SPLITTER_PORT $ROUTER_PORT $CLI_PORT
 # We define the config creator as entrypoint
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
+HEALTHCHECK --interval=5s CMD /healthcheck.sh
+
 # We startup MaxScale as default command
-CMD ["/usr/bin/maxscale","--nodaemon"]
+CMD ["/usr/bin/maxscale", "--nodaemon"]
+#"--log=stdout",
